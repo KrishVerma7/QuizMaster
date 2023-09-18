@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1022656301646",
+    "project_id": "quizmastercheezycode",
+    "storage_bucket": "quizmastercheezycode.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022656301646:android:cd76f30c2a20de6a69911f",
+        "android_client_info": {
+          "package_name": "com.example.quizmastercheezycode"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMyYZ8wiua_G8eP0k2JaQqk472YPd-q3c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
