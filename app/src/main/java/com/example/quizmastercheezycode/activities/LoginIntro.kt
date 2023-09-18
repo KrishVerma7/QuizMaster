@@ -12,26 +12,27 @@ class LoginIntro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_intro)
+        val btnGetStarted: Button=findViewById(R.id.btnGetStarted)
+
         val auth = FirebaseAuth.getInstance()
-        if (auth.currentUser != null){          //Firebase property to see if user is already logged in
-            Toast.makeText(this,"User is already logged in!",Toast.LENGTH_SHORT).show()
+        if(auth.currentUser != null){
+            Toast.makeText(this, "User is already logged in!", Toast.LENGTH_SHORT).show()
             redirect("MAIN")
         }
 
-        var btnGetStarted : Button= findViewById(R.id.btnGetStarted)
-
-        btnGetStarted.setOnClickListener{
+        btnGetStarted.setOnClickListener {
             redirect("LOGIN")
         }
     }
 
-    private fun redirect(name:String){      //redirects to particular activity according to condition
+    private fun redirect(name:String){
         val intent = when(name){
-            "LOGIN"-> Intent(this, LoginActivity::class.java)
+            "LOGIN" -> Intent(this, LoginActivity::class.java)
             "MAIN" -> Intent(this, MainActivity::class.java)
             else -> throw Exception("no path exists")
         }
         startActivity(intent)
         finish()
     }
+
 }

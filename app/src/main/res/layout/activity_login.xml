@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+<<<<<<< HEAD
         android:orientation="vertical"
         android:gravity="center_vertical"
         android:paddingStart="32dp"
@@ -22,13 +23,28 @@
 
         <TextView
             android:textColor="@color/colorPrimaryText"
+=======
+        android:gravity="center_vertical"
+        android:paddingStart="32dp"
+        android:paddingEnd="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+>>>>>>> 3c01855 (Final project)
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login Now" />
 
         <TextView
+<<<<<<< HEAD
             android:textColor="@color/colorPrimaryText"
+=======
+>>>>>>> 3c01855 (Final project)
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,10 +56,19 @@
             android:id="@+id/etEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:ems="10"
             android:hint="Email"
             android:layout_marginTop="32dp"
             android:textSize="16sp"
+=======
+            android:layout_marginTop="32dp"
+            android:hint="Email"
+            android:textColorHint="@color/textColorHint"
+            android:textColor="@color/textColorPrimaryDark"
+            android:textSize="16sp"
+            android:ems="10"
+>>>>>>> 3c01855 (Final project)
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -52,15 +77,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+<<<<<<< HEAD
             android:hint="Password"
+=======
+            android:layout_marginTop="16dp"
+            android:hint="Password"
+            android:textColorHint="@color/textColorHint"
+            android:textColor="@color/textColorPrimaryDark"
+>>>>>>> 3c01855 (Final project)
             android:textSize="16sp"
             android:inputType="textPassword" />
 
         <androidx.appcompat.widget.AppCompatButton
+<<<<<<< HEAD
+=======
+            android:textColor="@color/textColorPrimaryLight"
+            android:background="@drawable/btn_primary"
+>>>>>>> 3c01855 (Final project)
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+<<<<<<< HEAD
             android:background="@drawable/btn_primary"
             android:minHeight="28dp"
             android:padding="12dp"
@@ -69,12 +107,21 @@
 
         <TextView
             android:textColor="@color/colorPrimaryText"
+=======
+            android:text="Log In" />
+
+        <TextView
+>>>>>>> 3c01855 (Final project)
             android:id="@+id/btnSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:textAlignment="center"
+<<<<<<< HEAD
             android:text="Don't have an account? SignUp" />
+=======
+            android:text="Don't have an account? Signup" />
+>>>>>>> 3c01855 (Final project)
     </LinearLayout>
 
     <ImageView
@@ -85,8 +132,12 @@
         android:src="@drawable/wave"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< HEAD
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 
+=======
+        app:layout_constraintStart_toStartOf="parent" />
+>>>>>>> 3c01855 (Final project)
 </androidx.constraintlayout.widget.ConstraintLayout>

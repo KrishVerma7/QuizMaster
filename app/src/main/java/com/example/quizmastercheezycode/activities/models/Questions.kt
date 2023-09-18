@@ -1,5 +1,4 @@
 package com.example.quizmastercheezycode.activities.models
-
 data class Question(
     var description: String = "",
     var option1: String = "",

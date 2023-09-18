@@ -7,6 +7,7 @@
     tools:context=".activities.LoginIntro">
 
     <TextView
+<<<<<<< HEAD
         android:id="@+id/txtLoginHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,11 +25,21 @@
         style="@style/TextAppearance.AppCompat.Subhead"
         android:textAlignment="center"
         android:text="Isn't life a collection of weird quizzes with \n no answers to half the questions"
+=======
+        android:id="@+id/txtLoginSubHeader"
+        style="@style/TextAppearance.AppCompat.Subhead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:text="Isn’t life a collection of weird quizzes with \n no answers to half the questions"
+>>>>>>> 3c01855 (Final project)
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<<<<<<< HEAD
     <ImageView
         android:id="@+id/imageView"
         android:src="@drawable/quiz_login_image"
@@ -47,10 +58,44 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="@+id/txtLoginSubHeader"
         app:layout_constraintHorizontal_bias="1.0"
+=======
+    <TextView
+        android:id="@+id/txtLoginHeader"
+        style="@style/TextAppearance.AppCompat.Headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome To Quiz Master"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtLoginSubHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:layout_marginBottom="8dp"
+        android:id="@+id/imageView"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/quiz_login_image"
+        app:layout_constraintBottom_toTopOf="@+id/txtLoginHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:textColor="@color/textColorPrimaryLight"
+        android:background="@drawable/btn_primary"
+        android:id="@+id/btnGetStarted"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Get Started"
+        app:layout_constraintEnd_toEndOf="@+id/txtLoginSubHeader"
+>>>>>>> 3c01855 (Final project)
         app:layout_constraintStart_toStartOf="@+id/txtLoginSubHeader"
         app:layout_constraintTop_toBottomOf="@+id/txtLoginSubHeader" />
 
     <ImageView
+<<<<<<< HEAD
         android:scaleType="centerCrop"
         android:src="@drawable/wave"
         android:layout_width="0dp"
@@ -59,6 +104,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+=======
+        android:src="@drawable/wave"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+>>>>>>> 3c01855 (Final project)
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

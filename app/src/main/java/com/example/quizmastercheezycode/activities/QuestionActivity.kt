@@ -18,52 +18,50 @@ import com.google.gson.Gson
 
 class QuestionActivity : AppCompatActivity() {
 
-    var quizzes: MutableList<Quiz>? = null
+    var quizzes : MutableList<Quiz>? = null
     var questions: MutableMap<String, Question>? = null
     var index = 1
-    lateinit var btnPrevious: Button
-    lateinit var btnNext: Button
-    lateinit var btnSubmit: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
-        setupFirestore()
-        setupEventListener()
+        setUpFirestore()
+        setUpEventListener()
     }
 
-    private fun setupEventListener() {
-        btnPrevious = findViewById(R.id.btnPrevious)
-        btnNext = findViewById(R.id.btnNext)
-        btnSubmit = findViewById(R.id.btnSubmit)
+    private fun setUpEventListener() {
+        val btnNext:Button = findViewById(R.id.btnNext)
+        val btnPrevious:Button = findViewById(R.id.btnPrevious)
+        val btnSubmit:Button = findViewById(R.id.btnSubmit)
 
-        btnPrevious.setOnClickListener(){
+        btnPrevious.setOnClickListener {
             index--
             bindViews()
         }
-        btnNext.setOnClickListener{
+
+        btnNext.setOnClickListener {
             index++
             bindViews()
         }
-        btnSubmit.setOnClickListener{
-            Log.d("FINAL QUIZ", questions.toString())
 
-            val intent = Intent (this,ResultActivity::class.java)
-            val json= Gson().toJson(quizzes!![0])
-            intent.putExtra("QUIZ",json)
+        btnSubmit.setOnClickListener {
+            Log.d("FINALQUIZ", questions.toString())
+
+            val intent = Intent(this, ResultActivity::class.java)
+            val json  = Gson().toJson(quizzes!![0])
+            intent.putExtra("QUIZ", json)
             startActivity(intent)
         }
     }
 
-    //this function fetches the quizzes from firestore of a particular date selected by datePicker
-    private fun setupFirestore() {
+    private fun setUpFirestore() {
         val firestore = FirebaseFirestore.getInstance()
         var date = intent.getStringExtra("DATE")
         if (date != null) {
-            firestore.collection("quizzes2").whereEqualTo("title", date)
+            firestore.collection("quizzes").whereEqualTo("title", date)
                 .get()
                 .addOnSuccessListener {
-                    if (it != null && !it.isEmpty) {
+                    if(it != null && !it.isEmpty){
                         quizzes = it.toObjects(Quiz::class.java)
                         questions = quizzes!![0].questions
                         bindViews()
@@ -73,24 +71,26 @@ class QuestionActivity : AppCompatActivity() {
     }
 
     private fun bindViews() {
-        val description: TextView = findViewById(R.id.description)
-        val optionList: RecyclerView = findViewById(R.id.optionList)
-        btnPrevious= findViewById(R.id.btnPrevious)
-        btnNext = findViewById(R.id.btnNext)
-        btnSubmit = findViewById(R.id.btnSubmit)
+        val btnNext:Button = findViewById(R.id.btnNext)
+        val btnPrevious:Button = findViewById(R.id.btnPrevious)
+        val btnSubmit:Button = findViewById(R.id.btnSubmit)
+        val description:TextView=findViewById(R.id.description)
+        val optionList:RecyclerView=findViewById(R.id.optionList)
 
         btnPrevious.visibility = View.GONE
-        btnNext.visibility = View.GONE
         btnSubmit.visibility = View.GONE
+        btnNext.visibility = View.GONE
 
-        if (index == 1) { //first question
+        if(index == 1){ //first question
             btnNext.visibility = View.VISIBLE
-        } else if (index == questions!!.size) { //last question
+        }
+        else if(index == questions!!.size) { // last question
             btnSubmit.visibility = View.VISIBLE
             btnPrevious.visibility = View.VISIBLE
-        } else { //middle questions
-            btnNext.visibility = View.VISIBLE
+        }
+        else{ // Middle
             btnPrevious.visibility = View.VISIBLE
+            btnNext.visibility = View.VISIBLE
         }
 
         val question = questions!!["question$index"]
@@ -101,6 +101,5 @@ class QuestionActivity : AppCompatActivity() {
             optionList.adapter = optionAdapter
             optionList.setHasFixedSize(true)
         }
-
     }
 }

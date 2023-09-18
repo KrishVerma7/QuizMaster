@@ -14,8 +14,9 @@ class ProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
-        val txtEmail: TextView = findViewById(R.id.txtEmail)
-        val btnLogout: Button = findViewById(R.id.btnLogout)
+
+        val txtEmail:TextView = findViewById(R.id.txtEmail)
+        val btnLogout:Button = findViewById(R.id.btnLogout)
 
         firebaseAuth = FirebaseAuth.getInstance()
         txtEmail.text = firebaseAuth.currentUser?.email
@@ -24,7 +25,7 @@ class ProfileActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
-
+            finish()
         }
     }
 }

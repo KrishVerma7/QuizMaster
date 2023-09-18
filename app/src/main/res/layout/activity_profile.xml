@@ -11,7 +11,11 @@
         android:id="@+id/profile_header_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:background="@color/colorPrimary"
+=======
+        android:background="@color/colorPrimaryButtonDark"
+>>>>>>> 3c01855 (Final project)
         android:gravity="center"
         android:orientation="vertical"
         android:padding="32dp">
@@ -20,7 +24,11 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
+<<<<<<< HEAD
             android:src="@drawable/ic_profile" />
+=======
+            android:src="@mipmap/ic_icon" />
+>>>>>>> 3c01855 (Final project)
 
         <TextView
             android:id="@+id/txtEmail"
@@ -29,19 +37,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             tools:text="cheezycode@gmail.com"
+<<<<<<< HEAD
+=======
+            android:textColorHint="@color/colorAccent"
+>>>>>>> 3c01855 (Final project)
             android:textColor="@android:color/white" />
     </LinearLayout>
 
 
+<<<<<<< HEAD
     <Button
+=======
+    <androidx.appcompat.widget.AppCompatButton
+>>>>>>> 3c01855 (Final project)
         android:id="@+id/btnLogout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="32dp"
         android:background="@drawable/btn_primary"
         android:text="Log Out"
+<<<<<<< HEAD
         android:textColor="@color/colorPrimaryButton" />
 
+=======
+        android:textColor="@color/textColorPrimaryLight"/>
+>>>>>>> 3c01855 (Final project)
 
 
 </LinearLayout>

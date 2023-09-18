@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quizmastercheezycode.R
 import com.example.quizmastercheezycode.activities.adapters.QuizAdapter
 import com.example.quizmastercheezycode.activities.models.Quiz
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -22,33 +23,42 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
     lateinit var adapter: QuizAdapter
-    private var quizList=  mutableListOf<Quiz>()
+    private var quizList = mutableListOf<Quiz>()
     lateinit var firestore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setUpViews()
-        setupDatePicker()
     }
 
-    private fun setupDatePicker() {
+    fun setUpViews() {
+        setUpFireStore()
+        setUpDrawerLayout()
+        setUpRecyclerView()
+        setUpDatePicker()
+    }
+
+    private fun setUpDatePicker() {
         val btnDatePicker:FloatingActionButton = findViewById(R.id.btnDatePicker)
-        btnDatePicker.setOnClickListener{
+
+        btnDatePicker.setOnClickListener {
             val datePicker = MaterialDatePicker.Builder.datePicker().build()
-            datePicker.show(supportFragmentManager,"DatePicker")
+            datePicker.show(supportFragmentManager, "DatePicker")
             datePicker.addOnPositiveButtonClickListener {
                 Log.d("DATEPICKER", datePicker.headerText)
                 val dateFormatter = SimpleDateFormat("dd-mm-yyyy")
                 val date = dateFormatter.format(Date(it))
                 val intent = Intent(this, QuestionActivity::class.java)
-                intent.putExtra("DATE",date)
+                intent.putExtra("DATE", date)
                 startActivity(intent)
             }
             datePicker.addOnNegativeButtonClickListener {
                 Log.d("DATEPICKER", datePicker.headerText)
+
             }
             datePicker.addOnCancelListener {
                 Log.d("DATEPICKER", "Date Picker Cancelled")
@@ -56,22 +66,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-    fun setUpViews(){
-        setupFirestore()
-        setUpDrawerLayout()
-        setUpRecyclerView()
-    }
-
-    private fun setupFirestore(){
-        firestore= FirebaseFirestore.getInstance()
-        val collectionReference = firestore.collection("quizzes2")
-        collectionReference.addSnapshotListener{ value,error->
+    private fun setUpFireStore() {
+        firestore = FirebaseFirestore.getInstance()
+        val collectionReference = firestore.collection("quizzes")
+        collectionReference.addSnapshotListener { value, error ->
             if(value == null || error != null){
-                Toast.makeText(this,"Error fetching data", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Error fetching data", Toast.LENGTH_SHORT).show()
                 return@addSnapshotListener
             }
-            Log.d("DATA",value.toObjects(Quiz::class.java).toString())
+            Log.d("DATA", value.toObjects(Quiz::class.java).toString())
             quizList.clear()
             quizList.addAll(value.toObjects(Quiz::class.java))
             adapter.notifyDataSetChanged()
@@ -79,33 +82,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpRecyclerView() {
-        val quizRecyclerView:RecyclerView=findViewById(R.id.quizRecyclerView)
-        adapter = QuizAdapter(this,quizList)
+        val quizRecyclerView:RecyclerView = findViewById(R.id.quizRecyclerView)
+
+        adapter = QuizAdapter(this, quizList)
         quizRecyclerView.layoutManager = GridLayoutManager(this, 2)
-        quizRecyclerView.adapter=adapter
+        quizRecyclerView.adapter = adapter
     }
 
-    private fun setUpDrawerLayout() {
+    fun setUpDrawerLayout() {
+        val appBar:MaterialToolbar = findViewById(R.id.appBar)
+        val mainDrawer:DrawerLayout = findViewById(R.id.mainDrawer)
         val navigationView:NavigationView = findViewById(R.id.navigationView)
-        val mainDrawer :DrawerLayout = findViewById(R.id.mainDrawer)
-        val appBar:androidx.appcompat.widget.Toolbar =  findViewById(R.id.appBar)
+
         setSupportActionBar(appBar)
-        actionBarDrawerToggle = ActionBarDrawerToggle(this,mainDrawer,R.string.app_name,R.string.app_name
-        )
+        actionBarDrawerToggle =
+            ActionBarDrawerToggle(this, mainDrawer, R.string.app_name, R.string.app_name)
         actionBarDrawerToggle.syncState()
         navigationView.setNavigationItemSelectedListener {
-            val intent = Intent (this,ProfileActivity::class.java)
+            val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
             mainDrawer.closeDrawers()
             true
         }
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)){
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

@@ -19,31 +19,30 @@ import com.example.quizmastercheezycode.activities.utils.ColorPicker
 import com.example.quizmastercheezycode.activities.utils.IconPicker
 
 class QuizAdapter(val context: Context, val quizzes: List<Quiz>) :
-    RecyclerView.Adapter<QuizAdapter.QuizViewholder>() {
+    RecyclerView.Adapter<QuizAdapter.QuizViewHolder>() {
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuizViewholder {
-        val view:View = LayoutInflater.from(context).inflate(R.layout.quiz_item,parent,false)
-        return QuizViewholder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuizViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.quiz_item, parent, false)
+        return QuizViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return quizzes.size
-    }
-
-    override fun onBindViewHolder(holder: QuizViewholder, position: Int) {
+    override fun onBindViewHolder(holder: QuizViewHolder, position: Int) {
         holder.textViewTitle.text = quizzes[position].title
         holder.cardContainer.setCardBackgroundColor(Color.parseColor(ColorPicker.getColor()))
         holder.iconView.setImageResource(IconPicker.getIcon())
-        holder.itemView.setOnClickListener{
-            Toast.makeText(context,quizzes[position].title,Toast.LENGTH_SHORT).show()
+        holder.itemView.setOnClickListener {
+            Toast.makeText(context, quizzes[position].title, Toast.LENGTH_SHORT).show()
             val intent = Intent(context, QuestionActivity::class.java)
             intent.putExtra("DATE", quizzes[position].title)
             context.startActivity(intent)
         }
     }
 
-    inner class QuizViewholder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    override fun getItemCount(): Int {
+        return quizzes.size
+    }
+
+    inner class QuizViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var textViewTitle: TextView = itemView.findViewById(R.id.quizTitle)
         var iconView: ImageView = itemView.findViewById(R.id.quizIcon)
         var cardContainer: CardView = itemView.findViewById(R.id.cardContainer)

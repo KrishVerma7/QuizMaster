@@ -1,7 +1,20 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.QuizMasterCheezyCode" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="AppThemeNoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="android:textColorPrimary">@color/textColorPrimaryLight</item>
+        <item name="android:autofilledHighlight">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
     </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar" >
+        <item name="android:textColorPrimary">@color/textColorPrimaryLight</item>
+        <item name="android:autofilledHighlight">@android:color/transparent</item>
+        <item name="android:actionBarTheme">@color/colorPrimaryButtonDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+
+    </style>
+
 </resources>

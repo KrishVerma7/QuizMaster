@@ -13,7 +13,6 @@ object IconPicker {
         R.drawable.ic_icon_7,
         R.drawable.ic_icon_8
     )
-
     var currentIcon = 0
 
     fun getIcon(): Int {
