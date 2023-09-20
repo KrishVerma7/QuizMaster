@@ -16,12 +16,6 @@ A comprehensive quiz application that allows users to create, share, and partici
 
 QuizMaster ia an android app that contains quizzes and shows your score after submitting the quiz
 
-Key features include:
-
-- Login/SignUp Authentication by Firebase.
-- Database is store in Firestore.
-- Fully responsive.
-- Modern and attractive UI
 
 ## Features
 
@@ -30,7 +24,7 @@ Key features include:
 - Database is store in Firestore.
 - Fully responsive.
 - Modern and attractive UI
--  Quiz search and discovery.
+- Quiz search and discovery.
 - Quiz participation and scoring.
 
 ## Demo
