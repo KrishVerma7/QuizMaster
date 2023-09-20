@@ -21,11 +21,10 @@ QuizMaster ia an android app that contains quizzes and shows your score after su
 
 - Interactive and responsive design.
 - Login/SignUp Authentication by Firebase.
-- Database is store in Firestore.
+- Database stored in Firestore.
 - Fully responsive.
 - Modern and attractive UI
 - Quiz search and discovery.
-- Quiz participation and scoring.
 
 ## Demo
 
