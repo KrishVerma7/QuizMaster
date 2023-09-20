@@ -17,6 +17,9 @@ A comprehensive quiz application that allows users to create, share, and partici
 QuizMaster ia an android app that contains quizzes and shows your score after submitting the quiz
 
 
+https://github.com/KrishVerma7/QuizMaster/assets/100028624/1d51225f-aacd-49fa-bb43-97d661db611b
+
+
 ## Features
 
 - Interactive and responsive design.
