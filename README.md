@@ -55,5 +55,5 @@ Follow these instructions to get a copy of the project up and running on your lo
      npm install
 
 ### Thank You for visiting
-star this repo for support
+Star this repo for support.
 
